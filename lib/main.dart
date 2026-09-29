@@ -13,7 +13,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Urbanist',
       ),
-      home: const FavoriteScreen(),
+      home: const SignInScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
