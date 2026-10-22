@@ -1,12 +1,17 @@
+# anime_verse
 # 🎬 Anime Verse — Aplikasi Katalog Anime
 
+A new Flutter project.
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 
+## Getting Started
 **Anime Verse** adalah aplikasi mobile katalog anime interaktif yang dikembangkan sebagai proyek pembelajaran praktikum **Pemrograman Mobile**. Aplikasi ini dirancang secara bertahap mulai dari pengenalan widget dasar, layouting responsif, navigasi deklaratif, manajemen state, integrasi REST API, hingga autentikasi dan penyimpanan basis data lokal maupun *cloud*.
 
+This project is a starting point for a Flutter application.
 ---
 
+A few resources to get you started if this is your first Flutter project:
 ## 📌 Daftar Isi
 - [Tentang Aplikasi](#-tentang-aplikasi)
 - [Fitur Utama](#-fitur-utama)
@@ -16,8 +21,14 @@
 - [Panduan Penggunaan Git untuk Praktikan](#-panduan-penggunaan-git-untuk-praktikan)
 - [Tahapan Pengembangan (Roadmap Modul)](#-tahapan-pengembangan-roadmap-modul)
 
+- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
+- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
 ---
 
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 ## 🚀 Tentang Aplikasi
 
 Aplikasi **Anime Verse** menyajikan antarmuka modern berbasi *dark mode* dengan sentuhan gradien. Praktikan akan belajar bagaimana membangun aplikasi skala riil menggunakan Flutter, memahami arsitektur *Clean Architecture* sederhana (pola Repository & Provider), serta mengonsumsi data *live* dari [JikanAPI](https://jikan.moe/) (Unvalidated MyAnimeList REST API v4).

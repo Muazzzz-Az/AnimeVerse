@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/app_scaffold.dart';
+import '../config/routes.dart';
+import 'package:go_router/go_router.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +22,21 @@ class SignUpScreen extends StatelessWidget {
             child: Center(
               child: Container(
                 width: maxWidth,
-                padding: EdgeInsets.all(screenWidth * 0.06),
+                padding: EdgeInsets.all(
+                  isLargeScreen ? 24.0 : screenWidth * 0.06,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: screenHeight * 0.14),
+                    SizedBox(height: screenHeight * 0.08),
 
-                    // Sign Up Title
+                    // Title
                     Text(
-                      'Join AnimeVerse',
+                      'JoinAnimeVerse',
                       style: TextStyle(
-                        fontSize:
-                            screenWidth * (isLargeScreen ? 0.06 : 0.1),
+                        fontSize: isLargeScreen
+                            ? 32.0
+                            : screenWidth * 0.08,
                         fontWeight: FontWeight.w800,
                         color: Colors.white,
                       ),
@@ -40,45 +45,49 @@ class SignUpScreen extends StatelessWidget {
 
                     SizedBox(height: screenHeight * 0.01),
 
+                    // Subtitle
                     Text(
-                      'Create your account and start exploring the world of anime!',
+                      'create your account and start exploring the world of anime!',
                       style: TextStyle(
-                        fontSize: screenWidth * 0.035,
+                        fontSize: isLargeScreen
+                            ? 16.0
+                            : screenWidth * 0.035,
                         fontWeight: FontWeight.w500,
                         color: Colors.white70,
                       ),
                       textAlign: TextAlign.center,
                     ),
 
-                    SizedBox(height: screenHeight * 0.05),
+                    SizedBox(height: screenHeight * 0.04),
 
-                    // Email
+                    // Email TextField
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Email',
                         labelStyle: TextStyle(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: isLargeScreen ? 14.0 : screenWidth * 0.04,
                           color: Colors.white70,
                         ),
                         filled: true,
                         fillColor: Colors.white.withValues(alpha: 0.1),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(screenWidth * 0.03),
+                          borderRadius: BorderRadius.circular(
+                            isLargeScreen ? 12.0 : screenWidth * 0.03,
+                          ),
                           borderSide: BorderSide.none,
                         ),
                         prefixIcon: Icon(
                           Icons.email,
                           color: Colors.white70,
-                          size: screenWidth * 0.06,
+                          size: isLargeScreen ? 20.0 : screenWidth * 0.06,
                         ),
                         contentPadding: EdgeInsets.symmetric(
-                          vertical: screenHeight * 0.025,
-                          horizontal: screenWidth * 0.055,
+                          vertical: screenHeight * 0.02,
+                          horizontal: screenWidth * 0.05,
                         ),
                       ),
                       style: TextStyle(
-                        fontSize: screenWidth * 0.04,
+                        fontSize: isLargeScreen ? 14.0 : screenWidth * 0.04,
                         color: Colors.white,
                       ),
                       keyboardType: TextInputType.emailAddress,
@@ -86,67 +95,87 @@ class SignUpScreen extends StatelessWidget {
 
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Password
+                    // Password TextField
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: TextStyle(
-                          fontSize: screenWidth * 0.04,
+                          fontSize: isLargeScreen ? 14.0 : screenWidth * 0.04,
                           color: Colors.white70,
                         ),
                         filled: true,
                         fillColor: Colors.white.withValues(alpha: 0.1),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(screenWidth * 0.03),
+                          borderRadius: BorderRadius.circular(
+                            isLargeScreen ? 12.0 : screenWidth * 0.03,
+                          ),
                           borderSide: BorderSide.none,
                         ),
                         prefixIcon: Icon(
                           Icons.lock_outline,
                           color: Colors.white70,
-                          size: screenWidth * 0.06,
+                          size: isLargeScreen ? 20.0 : screenWidth * 0.06,
                         ),
                         suffixIcon: Icon(
                           Icons.visibility_off_outlined,
                           color: Colors.white70,
-                          size: screenWidth * 0.06,
+                          size: isLargeScreen ? 20.0 : screenWidth * 0.06,
                         ),
                         contentPadding: EdgeInsets.symmetric(
-                          vertical: screenHeight * 0.025,
-                          horizontal: screenWidth * 0.055,
+                          vertical: screenHeight * 0.02,
+                          horizontal: screenWidth * 0.05,
                         ),
                       ),
                       style: TextStyle(
-                        fontSize: screenWidth * 0.04,
+                        fontSize: isLargeScreen ? 14.0 : screenWidth * 0.04,
                         color: Colors.white,
                       ),
                       obscureText: true,
                     ),
 
+                    SizedBox(height: screenHeight * 0.01),
+
+                    // Forgot Password
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            fontSize: isLargeScreen ? 13.0 : screenWidth * 0.035,
+                            color: Colors.blue.shade300,
+                          ),
+                        ),
+                        onPressed: () {
+                          // TODO: Implement forgot password functionality
+                        },
+                      ),
+                    ),
+
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Sign Up Button
+                    // Sign In Button
                     SizedBox(
                       width: double.infinity,
-                      height: screenHeight * 0.075,
+                      height: isLargeScreen ? 48.0 : screenHeight * 0.065,
                       child: ElevatedButton(
                         onPressed: () {
-                          // TODO: Implement sign up functionality
+                          // TODO: Implement sign in functionality
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              Colors.blue.withValues(alpha: 0.8),
+                          backgroundColor: Colors.blue.withValues(alpha: 0.8),
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(screenWidth * 0.03),
+                            borderRadius: BorderRadius.circular(
+                              isLargeScreen ? 12.0 : screenWidth * 0.03,
+                            ),
                           ),
                           elevation: 5,
                         ),
                         child: Text(
-                          'Sign Up',
+                          'Sign up',
                           style: TextStyle(
-                            fontSize: screenWidth * 0.045,
+                            fontSize: isLargeScreen ? 16.0 : screenWidth * 0.045,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -155,7 +184,7 @@ class SignUpScreen extends StatelessWidget {
 
                     SizedBox(height: screenHeight * 0.03),
 
-                    // Divider
+                    // Divider "or"
                     Row(
                       children: [
                         Expanded(
@@ -166,12 +195,12 @@ class SignUpScreen extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.03,
+                            horizontal: isLargeScreen ? 12.0 : screenWidth * 0.03,
                           ),
                           child: Text(
                             'or',
                             style: TextStyle(
-                              fontSize: screenWidth * 0.035,
+                              fontSize: isLargeScreen ? 13.0 : screenWidth * 0.035,
                               color: Colors.white70,
                             ),
                           ),
@@ -187,23 +216,23 @@ class SignUpScreen extends StatelessWidget {
 
                     SizedBox(height: screenHeight * 0.03),
 
-                    // Google Sign Up
+                    // Sign in with Google
                     SizedBox(
                       width: double.infinity,
-                      height: screenHeight * 0.075,
+                      height: isLargeScreen ? 48.0 : screenHeight * 0.065,
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          // TODO: Implement Google sign up functionality
+                         context.go(AppRoutes.signIn); // Navigate to the home screen after Google sign-in
                         },
                         icon: SvgPicture.asset(
                           'assets/images/google_icon.svg',
-                          height: screenWidth * 0.06,
-                          width: screenWidth * 0.06,
+                          height: isLargeScreen ? 20.0 : screenWidth * 0.06,
+                          width: isLargeScreen ? 20.0 : screenWidth * 0.06,
                         ),
                         label: Text(
                           'Continue with Google',
                           style: TextStyle(
-                            fontSize: screenWidth * 0.04,
+                            fontSize: isLargeScreen ? 14.0 : screenWidth * 0.04,
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
                           ),
@@ -211,8 +240,9 @@ class SignUpScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black45,
                           shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(screenWidth * 0.03),
+                            borderRadius: BorderRadius.circular(
+                              isLargeScreen ? 12.0 : screenWidth * 0.03,
+                            ),
                             side: const BorderSide(
                               color: Colors.black45,
                               width: 1,
@@ -223,27 +253,27 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: screenHeight * 0.04),
+                    SizedBox(height: screenHeight * 0.03),
 
-                    // Already have an account?
+                    // Sign up link
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Already have an account?",
+                          "Already have an account? ",
                           style: TextStyle(
-                            fontSize: screenWidth * 0.04,
+                            fontSize: isLargeScreen ? 14.0 : screenWidth * 0.04,
                             color: Colors.white70,
                           ),
                         ),
                         TextButton(
                           onPressed: () {
-                            // TODO: Navigate to sign in screen
+                           context.go(AppRoutes.signIn); // Navigate to the sign-in screen
                           },
                           child: Text(
-                            'Sign In',
+                            'Sign in',
                             style: TextStyle(
-                              fontSize: screenWidth * 0.04,
+                              fontSize: isLargeScreen ? 14.0 : screenWidth * 0.04,
                               fontWeight: FontWeight.w600,
                               color: Colors.blue.shade300,
                             ),
@@ -252,7 +282,7 @@ class SignUpScreen extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(height: screenHeight * 0.05),
+                    SizedBox(height: screenHeight * 0.04),
                   ],
                 ),
               ),
